@@ -33,3 +33,8 @@ extract() {
         return 1
     fi
 }
+
+init-gitkey() {
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/gitkey
+}
