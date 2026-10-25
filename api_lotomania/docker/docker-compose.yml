@@ -32,7 +32,7 @@ services:
   api:
     build:
       context: ..
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
     restart: unless-stopped
     container_name: api-lotomania
     env_file:
