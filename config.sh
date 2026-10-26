@@ -35,8 +35,8 @@ fi
 criar_diretorio "$DOWNLOADS/lotomania"
 
 if [ -d "$PROJECTS" ]; then
-  mv "./api_lotomania" "$PROJECTS/api_lotomania"
-  mv "./update_lotomania" "$PROJECTS/update_lotomania"
+  sudo mv "./api_lotomania" "$PROJECTS/api_lotomania"
+  sudo mv "./update_lotomania" "$PROJECTS/update_lotomania"
   echo "api_lotomania movida para $PROJECTS/api_lotomania"
   echo "update_lotomania movida para $PROJECTS/api_lotomania"
 fi
