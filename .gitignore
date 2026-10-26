@@ -383,8 +383,3 @@ pyrightconfig.json
 .env
 api_lotomania/.env
 api_lotomania/.venv
-!documents/xlsx
-!documents/csv
-
-documents/xlsx/*.xlsx
-documents/csv/apostas.csv
