@@ -1,6 +1,7 @@
-import os
 from pathlib import Path
 from dotenv import load_dotenv
+
+from .functions import get_env_var, get_file_path
 
 
 __all__ = ['COMPOSE_FILE', 'INPUT_FILE_XLSX', 'OUTPUT_FILE_CSV', 'API_ROOT']
@@ -9,30 +10,20 @@ ROOT = Path(__file__).parent.parent.parent.parent
 
 load_dotenv(ROOT.joinpath('.env'))
 
-API_ROOT = os.getenv('API_LOTOMANIA_ROOT')
-LOTOMANIA_XLSX_PATH = os.getenv('LOTOMANIA_XLSX_PATH')
-LOTOMANIA_CSV_PATH = os.getenv('LOTOMANIA_CSV_PATH')
+API_ROOT = get_env_var('API_LOTOMANIA_PROJECT')
+API_FILE_PATH = get_env_var('API_LOTOMANIA_FILE_PATH')
+LOTOMANIA_XLSX_PATH = get_env_var('LOTOMANIA_XLSX_FILE_PATH')
 
-if not API_ROOT:
-    raise ValueError("API_LOTOMANIA_ROOT is not defined in the environment variables")
+API_ROOT = get_file_path(API_ROOT)
+API_FILE_PATH = get_file_path(API_FILE_PATH)
+LOTOMANIA_XLSX_PATH = get_file_path(LOTOMANIA_XLSX_PATH)
 
-if not LOTOMANIA_XLSX_PATH:
-    raise ValueError("LOTOMANIA_XLSX_PATH is not defined in the environment variables")
-
-if not LOTOMANIA_CSV_PATH:
-    raise ValueError("LOTOMANIA_CSV_PATH is not defined in the environment variables")
-
-API_ROOT = Path(API_ROOT).resolve()
 COMPOSE_FILE = API_ROOT.joinpath('docker/docker-compose.yml').resolve()
-INPUT_FILE_XLSX = Path(LOTOMANIA_XLSX_PATH).joinpath('Lotomania.xlsx').resolve()
-OUTPUT_FILE_CSV = Path(LOTOMANIA_CSV_PATH).joinpath('lotomania.csv').resolve()
-
-
 if not COMPOSE_FILE.exists():
     raise FileNotFoundError(f"File {COMPOSE_FILE} not found")
 
+INPUT_FILE_XLSX = LOTOMANIA_XLSX_PATH.joinpath('Lotomania.xlsx').resolve()
 if not INPUT_FILE_XLSX.exists():
     raise FileNotFoundError(f"File {INPUT_FILE_XLSX} not found")
 
-if not OUTPUT_FILE_CSV.parent.exists():
-    raise FileExistsError(f"Directory {OUTPUT_FILE_CSV.parent} not found")
+OUTPUT_FILE_CSV = API_FILE_PATH.joinpath('lotomania.csv').resolve()

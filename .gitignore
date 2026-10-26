@@ -380,7 +380,9 @@ pyrightconfig.json
 
 # Project Artifacts
 /.lab/
-
+.env
+api_lotomania/.env
+api_lotomania/.venv
 !documents/xlsx
 !documents/csv
 

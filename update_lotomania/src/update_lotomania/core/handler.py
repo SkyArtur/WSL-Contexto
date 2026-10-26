@@ -2,6 +2,7 @@ import subprocess
 
 from .config import COMPOSE_FILE, API_ROOT
 
+
 __all__ = ['handler_atualizar_sorteios']
 
 def handler_atualizar_sorteios():
