@@ -10,6 +10,6 @@ _bashrc_add_path() {
     done
 }
 
-_bashrc_add_path "$HOME/.projects/bin" "$UV_TOOL_BIN_DIR"
+_bashrc_add_path "$HOME/.projetos/bin" "$UV_TOOL_BIN_DIR"
 export PATH
 unset -f _bashrc_add_path

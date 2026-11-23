@@ -5,4 +5,4 @@ export PAGER="${PAGER:-less}"
 export LESS="${LESS:--FRX}"
 
 # Ferramentas instaladas com uv neste diretório ficam disponíveis após 25-path.sh.
-export UV_TOOL_BIN_DIR="${UV_TOOL_BIN_DIR:-$HOME/.projects/bin}"
+export UV_TOOL_BIN_DIR="${UV_TOOL_BIN_DIR:-$HOME/.projetos/bin}"
