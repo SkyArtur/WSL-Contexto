@@ -8,11 +8,11 @@ OS_RELEASE="$ID"
 BASHRC="$HOME/.bashrc"
 BASHRC_D="$HOME/.bashrc.d"
 BASHRC_CONFIG="./bashrc_config/.bashrc.d"
-PROJECTS="$HOME/Projects"
+PROJECTS="$HOME/Projetos"
 DOWNLOADS="$HOME/Downloads"
 SOURCE_LINE="source $HOME/.bashrc.d/bashrc"
 
-criar_diretorio() {
+create_dir() {
   local diretorio="$1"
   mkdir -p "$diretorio"
   if [ -d "$diretorio" ]; then
@@ -32,7 +32,7 @@ if [ "$OS_RELEASE" = "ubuntu" ]; then
   echo "Linha adicionada ao .bashrc"
 fi
 
-criar_diretorio "$DOWNLOADS/lotomania"
+create_dir "$DOWNLOADS/lotomania"
 
 if [ -d "$PROJECTS" ]; then
   sudo mv "./api_lotomania" "$PROJECTS/api_lotomania"

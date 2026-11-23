@@ -1,4 +1,4 @@
-export PROJECTS_DIR="$HOME/Projects"
+export PROJECTS_DIR="$HOME/Projetos"
 
 export API_LOTOMANIA_PROJECT="$PROJECTS_DIR/api_lotomania"
 export API_LOTOMANIA_FILE_PATH="$API_LOTOMANIA_PROJECT/core/data/file"
